@@ -53,14 +53,16 @@
       </asp:DropDownList>
 
       <asp:SqlDataSource ID="SqlSexo" runat="server" ConnectionString="<%$ ConnectionStrings:dbs_rolesConnectionString %>" ProviderName="<%$ ConnectionStrings:dbs_rolesConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [tbl_sexo]"></asp:SqlDataSource>
-     <br />
+    </div>
+      <br />
       <div class="form-group" style="text-align:center;">
       <asp:Button ID="btn_Guardar" Class="btn btn-success" runat="server" Text="Guardar" OnClick="btn_Guardar_Click" />
+          <asp:LinkButton ID="lnkRedireccion" Class="btn btn-primary" runat="server" OnClick="lnkRedireccion_Click" >Ir a registrar roles</asp:LinkButton>
     <br />
-          <asp:Label ID="lbl_mensaje" runat="server" Text=""></asp:Label>
-          <asp:LinkButton ID="lnkRedireccion" runat="server" OnClick="lnkRedireccion_Click" >Ir a registrar roles</asp:LinkButton>
           
-</div>
+          <asp:Label ID="lbl_mensaje" runat="server" Text=""></asp:Label>
+          
+
   </div>
 </form>
     </div>

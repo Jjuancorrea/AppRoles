@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Windows.Forms;
 
 namespace AppRoles
 {
@@ -12,13 +13,14 @@ namespace AppRoles
         private string str_mensaje;
         public void fnt_agregar(string usuario, string rol, string fechaCaduca)
         {
-            if (usuario == "" || rol == "" || fechaCaduca == ""  )
+            if (usuario == "" || rol == "" || fechaCaduca == "")
             {
                 str_mensaje = "No puede mandar campos vacíos";
             }
             else
             {
-               
+                try
+                {
                     clsConexion objConecta = new clsConexion();
                     SqlCommand con = new SqlCommand("SP_AsignarRol", objConecta.connection);
                     con.CommandType = CommandType.StoredProcedure;
@@ -29,7 +31,8 @@ namespace AppRoles
                     con.ExecuteNonQuery();
                     objConecta.connection.Close();
                     str_mensaje = "Registro exitoso";
-               
+                }
+                catch (Exception) { str_mensaje = "Este registro ya existe"; }
             }
         }
         public string getMensaje() { return this.str_mensaje; }

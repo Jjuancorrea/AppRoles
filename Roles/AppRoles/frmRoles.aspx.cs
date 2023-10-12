@@ -17,8 +17,13 @@ namespace AppRoles
         protected void btn_Guardar_Click(object sender, EventArgs e)
         {
             clsAsignarRol objUsuarios = new clsAsignarRol();
-            objUsuarios.fnt_agregar(txtUsuario.Text, txtFechaCaduca.Text, cbxRol.SelectedValue);
+            objUsuarios.fnt_agregar(txtUsuario.Text, cbxRol.SelectedValue, txtFechaCaduca.Text);
             lbl_mensaje.Text = objUsuarios.getMensaje();
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frm_Registrar.aspx");
         }
     }
 }
